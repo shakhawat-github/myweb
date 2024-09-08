@@ -1,0 +1,45 @@
+@import "../variables/variables";
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  z-index: 1;
+  background-color: #050203;
+  .headbox {
+    display: flex;
+    justify-content: space-between;
+    .headicon {
+      display: flex;
+      column-gap: 30px;
+      align-items: center;
+      li {
+        a {
+          color: $whitecolor;
+          font-size: 20px;
+        }
+      }
+    }
+    .calender {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      .date {
+        span {
+          color: $whitecolor;
+        }
+      }
+      #timing{
+        color: $whitecolor;
+      }
+    }
+    .headcall {
+      color: $whitecolor;
+      font-size: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+  }
+}
