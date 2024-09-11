@@ -1,0 +1,42 @@
+@mixin button ($clr: $blackcolor , $padding: 10px 30px , $bg: $whitecolor , $bdrr: 0 20px 0 20px , $aftbg: $brandcolor , $aftwidth: 0% , $aftheight: 0% ,  $hovaftwidth: 0% , $hovaftheight: 0% , $befwidth: 0% ,  $befheight: 0% , $hovbefwidth: 0% , $hovbefheight: 0%){
+    color: $clr;
+    padding: $padding;
+    background: $bg;
+    border-radius: $bdrr;
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+    transition: .4s;
+    overflow: hidden;
+    z-index: 1;
+    &::after{
+        content: '';
+        width: $aftwidth;
+        height: $aftheight;
+        background: $aftbg;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: .4s;
+        z-index: -1;
+    }
+    &::before{
+        content: '';
+        width: $befwidth;
+        height: $befheight;
+        background: $aftbg;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transition: .4s;
+        z-index: -1;
+    }
+    &:hover::after{
+        width: $hovaftwidth;
+        height: $hovaftheight;
+    }
+    &:hover::before{
+        width: $hovbefwidth;
+        height: $hovbefheight;
+    }
+}

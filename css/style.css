@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap");
 body {
   position: relative;
 }
@@ -32,7 +33,6 @@ header {
   width: 100%;
   padding: 10px 0;
   z-index: 1;
-  background-color: #050203;
 }
 header .headbox {
   display: flex;
@@ -68,7 +68,7 @@ header .headbox .headcall {
 }
 
 nav {
-  padding: 0 !important;
+  padding: 10px 0 !important;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   position: fixed !important;
@@ -81,44 +81,35 @@ nav .nav-box {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 nav .nav-box .navbar-brand {
-  width: 50%;
-}
-nav .nav-box .navbar-brand svg {
-  width: 250px;
-}
-nav .nav-box .navbar-brand svg text {
-  text-transform: uppercase;
-  animation: stroke 5s infinite alternate;
-  stroke-width: 2px;
-  stroke: #365fa0;
-  font-size: 140px;
+  position: relative;
+  font-family: "Merienda", cursive;
   font-weight: 900;
+  font-size: 30px;
+  color: #F5F5F5;
+  padding-right: 5px;
 }
-@keyframes stroke {
-  0% {
-    fill: rgba(72, 138, 20, 0);
-    stroke: #EFB11D;
-    stroke-dashoffset: 25%;
-    stroke-dasharray: 0 50%;
-    stroke-width: 2px;
+nav .nav-box .navbar-brand::before {
+  top: 3px;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: #84EFA7;
+  overflow: hidden;
+  position: absolute;
+  content: attr(data-text);
+  border-right: 2px solid #84EFA7;
+  -webkit-text-stroke: 0vw #F5F5F5;
+  animation: animate 6s linear infinite;
+}
+@keyframes animate {
+  0%, 10%, 100% {
+    width: 0;
   }
-  70% {
-    fill: rgba(72, 138, 20, 0);
-    stroke: #EFB11D;
-  }
-  80% {
-    fill: rgba(72, 138, 20, 0);
-    stroke: #EFB11D;
-    stroke-width: 3px;
-  }
-  100% {
-    fill: #EFB11D;
-    stroke: rgba(54, 95, 160, 0);
-    stroke-dashoffset: -25%;
-    stroke-dasharray: 50% 0;
-    stroke-width: 0px;
+  70%, 90% {
+    width: 100%;
   }
 }
 nav .nav-box .navigation {
@@ -134,7 +125,7 @@ nav .nav-box .navigation .navlist {
   justify-content: end;
   gap: 20px;
   position: absolute;
-  top: 30%;
+  top: 15%;
   right: 10%;
   transition: 0.7s;
   -webkit-transition: 0.7s;
@@ -149,6 +140,10 @@ nav .nav-box .navigation .navlist li a {
   font-size: 18px;
   font-weight: 500;
   color: #F5F5F5;
+  transition: 0.6s;
+}
+nav .nav-box .navigation .navlist li a:hover {
+  color: #84EFA7;
 }
 nav .nav-box .navigation .navbtnbox {
   width: 5%;
@@ -161,7 +156,7 @@ nav .nav-box .navigation .navbtnbox:hover {
 nav .nav-box .navigation .navbtnbox .navbtn {
   width: 100%;
   height: 10%;
-  background-color: #EFB11D;
+  background-color: #84EFA7;
   border: none;
   position: relative;
 }
@@ -187,6 +182,23 @@ nav .nav-box .navigation .show {
   width: 95%;
 }
 
+.navfixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: navfixed 1s linear;
+}
+@keyframes navfixed {
+  0% {
+    top: -50px;
+    left: 0;
+  }
+  100% {
+    top: 0;
+    left: 0;
+  }
+}
+
 #banner {
   position: relative;
 }
@@ -207,8 +219,9 @@ nav .nav-box .navigation .show {
   width: 100%;
 }
 #banner .bnr-main {
-  padding-top: 200px;
+  padding-top: 35%;
   position: sticky;
+  margin-left: 25%;
 }
 #banner .bnr-main .hello {
   color: #F5F5F5;
@@ -216,19 +229,114 @@ nav .nav-box .navigation .show {
   font-weight: 700;
 }
 #banner .bnr-main h1 {
-  margin-top: 30px;
+  margin-top: 15px;
   font-size: 50px;
-  color: #EFB11D;
+  color: #84EFA7;
 }
-#banner .bnr-main h1 span {
+#banner .bnr-main h1 .name {
+  font-size: 35px;
+  color: #F5F5F5;
+}
+#banner .bnr-main h1 .typing {
+  display: block;
   font-size: 30px;
   color: #F5F5F5;
   position: relative;
 }
-#banner .bnr-main h1 span::after {
+#banner .bnr-main h1 .typing::after {
   font-family: "Font Awesome 5 Free";
   content: "\f303";
   font-weight: 900;
   font-size: 20px;
   margin-left: 10px;
+}
+#banner .bnr-main .bnr-button {
+  margin-top: 100px;
+  display: flex;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+#banner .bnr-main .bnr-button a {
+  color: #33372C;
+  padding: 10px 30px;
+  background: #F5F5F5;
+  border-radius: 0 20px 0 20px;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  transition: 0.4s;
+  overflow: hidden;
+  z-index: 1;
+}
+#banner .bnr-main .bnr-button a::after {
+  content: "";
+  width: 0%;
+  height: 100%;
+  background: #84EFA7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.4s;
+  z-index: -1;
+}
+#banner .bnr-main .bnr-button a::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  background: #84EFA7;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: 0.4s;
+  z-index: -1;
+}
+#banner .bnr-main .bnr-button a:hover::after {
+  width: 50%;
+  height: 100%;
+}
+#banner .bnr-main .bnr-button a:hover::before {
+  width: 50%;
+  height: 100%;
+}
+#banner .bnr-main .bnr-button a:last-child {
+  color: #33372C;
+  padding: 10px 30px;
+  background: #F5F5F5;
+  border-radius: 0 20px 0 20px;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  transition: 0.4s;
+  overflow: hidden;
+  z-index: 1;
+}
+#banner .bnr-main .bnr-button a:last-child::after {
+  content: "";
+  width: 100%;
+  height: 0%;
+  background: #84EFA7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.4s;
+  z-index: -1;
+}
+#banner .bnr-main .bnr-button a:last-child::before {
+  content: "";
+  width: 100%;
+  height: 0%;
+  background: #84EFA7;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: 0.4s;
+  z-index: -1;
+}
+#banner .bnr-main .bnr-button a:last-child:hover::after {
+  width: 100%;
+  height: 50%;
+}
+#banner .bnr-main .bnr-button a:last-child:hover::before {
+  width: 100%;
+  height: 50%;
 }/*# sourceMappingURL=style.css.map */

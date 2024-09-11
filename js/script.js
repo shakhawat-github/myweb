@@ -8,6 +8,20 @@ function navbtnclick(){
   document.querySelector('.navbtn').classList.toggle('navbutton');
 }
 // navigation end
+// navfixed start
+let navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll' , ()=>{
+  let scroll = window.scrollY;
+  if( scroll > 10 ){
+    navbar.classList.add('navfixed')
+  }
+  else{
+    navbar.classList.remove('navfixed')
+  }
+  
+})
+// navfixed end
 
 // nav end
 
@@ -16,12 +30,12 @@ function navbtnclick(){
 
 // banner start
 
-// typing
+// typing start
 'use strict';
 
 let type = document.querySelector('.typing');
 
-let typelist = ['Shakhawat Hossain','Font-end Developer', 'Web developer', 'Freelancer'];
+let typelist = ['Font-end Developer', 'Web developer', 'Freelancer'];
 
 let index = -1;
 let current = 0;
@@ -55,6 +69,7 @@ function clearTextFunc() {
 };
 
 typeTextFunc();
+// typing end
 
 
 
@@ -87,13 +102,16 @@ function mytime(){
   let second = date.getSeconds(); // 0 - 59
   let formate = "AM";
   
-  if(hour == 0){
+  if( hour == 0 ){
     hour = 12;
   }
   
-  if(hour > 12){
-    hour = hour - 12;
+  if( hour = 12 ){
     formate = "PM";
+  }
+  if( hour > 12 ){
+    hour = hour - 12 ;
+    formate = "PM"
   }
   
   hour = (hour < 10) ? "0" + hour : hour;
